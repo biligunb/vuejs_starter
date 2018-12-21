@@ -1,23 +1,23 @@
-<template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
-  </div>
-</template>
-
 <script>
+import LayoutDefault from './layouts/LayoutDefault'
+import LayoutSimple from './layouts/LayoutSimple'
+
 export default {
-  name: 'App'
+  computed: {
+    layout () {
+      return this.$store.getters.layout
+    }
+  },
+  components: {
+    'layout-default': LayoutDefault,
+    'layout-simple': LayoutSimple
+    // define as many layouts you want for the application
+  }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<template>
+  <v-app>
+    <component v-bind:is="layout"></component>
+  </v-app>
+</template>

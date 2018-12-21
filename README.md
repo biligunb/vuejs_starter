@@ -2,6 +2,9 @@
 
 > Vue.js starter template
 
+> npm install --save material-design-icons-iconfont
+> import 'material-design-icons-iconfont/dist/material-design-icons.css'
+
 ## Build Setup
 
 ``` bash
